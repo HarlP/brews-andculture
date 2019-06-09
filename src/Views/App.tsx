@@ -1,7 +1,5 @@
 import React from 'react';
-//import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import PageData from '../Controllers/PageData';
-//import Pagenator from '../Controllers/Pagenator';
+import Breweries from './Breweries';
 import '../Content/App.scss';
 
 const App: React.FC = () => {
@@ -10,7 +8,7 @@ const App: React.FC = () => {
       <div className='row'>
         <div className="col-lg-4"></div>
         <div className="col-lg-4">
-          <PageData />
+          <Breweries />
         </div>
         <div className="col-lg-4"></div>
       </div>
