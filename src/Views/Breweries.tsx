@@ -28,7 +28,6 @@ export default class Breweries extends React.Component<any, any> {
   }
 
   handleBreweryClick(breweryId: number){
-    console.log(breweryId);
     this.setState({breweryId: breweryId});
     this.setState({ modalShow: true});
   }
