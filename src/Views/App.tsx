@@ -1,6 +1,5 @@
 import React from 'react';
 import Breweries from './Breweries';
-import '../Content/App.scss';
 
 const App: React.FC = () => {
   return (
@@ -8,7 +7,7 @@ const App: React.FC = () => {
       <div className='row'>
         <div className="col-lg-4"></div>
         <div className="col-lg-4">
-          <Breweries />
+          <Breweries city='baltimore'/>
         </div>
         <div className="col-lg-4"></div>
       </div>

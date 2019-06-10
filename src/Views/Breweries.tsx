@@ -1,15 +1,36 @@
+/**
+ * Construct breweries list
+ * Api call for openbrewerydb to retreive data
+ * @author Harl Piety
+ * @param city string
+ */
+
 import React from "react";
 import Brewery from "./Brewery";
 import Button from "react-bootstrap/Button";
+import {BreweryArray} from "./Interface/BreweryArray";
 
-//startingpoint: https://gist.github.com/dennisja/33bd343d55797ea5095b0ad5d34626dc  
+interface BreweriesProps {
+  city: string;
+ } 
 
-export default class Breweries extends React.Component<any, any> {
+interface BreweriesState {
+  breweries: [];
+  breweryId: number;
+  breweryName: string;
+  loading: boolean;
+  error: any;
+  modalShow: boolean;
+}
+
+export default class Breweries extends React.Component<BreweriesProps, BreweriesState> {
+  
   constructor(props: any) {
     super(props);
     this.state = {
       breweries: [],
       breweryId: 0,
+      breweryName: 'default',
       loading: true,
       error: null,
       modalShow: false
@@ -17,7 +38,7 @@ export default class Breweries extends React.Component<any, any> {
   }
 
   componentDidMount() {
-    fetch(`https://api.openbrewerydb.org/breweries?by_city=baltimore`)
+    fetch(`https://api.openbrewerydb.org/breweries?by_city=${this.props.city}`)
       .then(respose => respose.json())
       .then(breweries => {
         this.setState({ breweries, loading: false });
@@ -27,8 +48,11 @@ export default class Breweries extends React.Component<any, any> {
       });
   }
 
-  handleBreweryClick(breweryId: number){
+  // handle state update for brewery class
+  
+  handleBreweryClick(breweryId: number, breweryName: string){
     this.setState({breweryId: breweryId});
+    this.setState({breweryName: breweryName});
     this.setState({ modalShow: true});
   }
 
@@ -42,21 +66,36 @@ export default class Breweries extends React.Component<any, any> {
 
     if (breweries.length >= 1) {
      return <div>
-                {breweries.map((brewery: { id: number; name: string; }) =>  
+                {breweries.map((brewery: BreweryArray) =>  
                         <div key={brewery.id}>
-                          {brewery.name}
-                          <Button
-                            variant="primary"
-                            onClick={() => this.handleBreweryClick(brewery.id)}
-                          >
-                            View
-                          </Button>
+                          <h5>{brewery.name}</h5>
+                          <div>Brewery Type: {brewery.brewery_type}</div>
+                          <div>
+                            <span>Address:</span>
+                            <span>
+                              <div>{brewery.street}</div>
+                              <div>{brewery.city}, {brewery.state}</div>
+                              <div>{brewery.postal_code}</div>
+                            </span>
+                          </div>
+                          <div>
+                            <a href={brewery.website_url} target="_blank">{brewery.website_url}</a>
+                          </div>
+                          <div className="custom-button"> 
+                            <Button
+                              variant="primary"
+                              onClick={() => this.handleBreweryClick(brewery.id,brewery.name)}
+                            >
+                              View
+                            </Button>
+                          </div>  
                         </div>)
                 }
                 <Brewery
                   show={this.state.modalShow}
                   onHide={modalClose}
                   breweryId = {this.state.breweryId}
+                  breweryName = {this.state.breweryName}
                   breweries = {this.state.breweries}
                 />
             </div>
