@@ -8,7 +8,7 @@
 import React from "react";
 import Brewery from "./Brewery";
 import Button from "react-bootstrap/Button";
-import {BreweryArray} from "./Interface/BreweryArray";
+import {BreweryArray} from "../Content/BreweryArray";
 
 interface BreweriesProps {
   city: string;

@@ -12,7 +12,9 @@ import React from "react";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import GoogleMap from "./GoogleMap";
-import {BreweryArray} from "./Interface/BreweryArray"
+import {BreweryArray} from "../Content/BreweryArray";
+import Format from "../Content/Format";
+const format = new Format;
 
 interface BreweryProps {
  breweries: [];
@@ -52,7 +54,7 @@ export default class Brewery extends React.Component<BreweryProps> {
                             <div className="row bottom">
                               <div className="col-5">Phone: 
                               {brewery.phone ? 
-                                  <span> {brewery.phone}</span> : 
+                                  <span> {format.phoneNumber(brewery.phone)}</span> : 
                                   <span> not available</span>
                               }
                               </div>

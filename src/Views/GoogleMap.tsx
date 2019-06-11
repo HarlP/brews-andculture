@@ -8,6 +8,7 @@ interface MapProps {
  }
 
 export default class GoogleMap extends React.Component<MapProps> {
+
   handleApiLoaded = (map: any, maps: any, mapCenter: any, label: string) => {
     return new maps.Marker({
       position: mapCenter,
@@ -19,6 +20,7 @@ export default class GoogleMap extends React.Component<MapProps> {
       }
     });
   };
+
   render() {
       let mapCenter = {lat: parseFloat(this.props.lat), lng: parseFloat(this.props.lng)}
     return (

@@ -1,7 +1,7 @@
 //Colors -- theme
 
-$primary:       #6B9E87;
-$secondary:     #496770;
+$primary:       #3e97e0;
+$secondary:     #6a9ba8;
 /*$success:       $green;
 $info:          $cyan;
 $warning:       $yellow;
@@ -12,9 +12,15 @@ $dark:          $gray-800;*/
 // Typography
 
 $font-family-base: "Apple Color Emoji";
+$body-bg: transparent; 
+
 
 // Buttons
 
 $btn-font-size: .8rem;
 $btn-line-height: .8rem;
 $btn-border-radius: 1rem;
+
+//Modals
+
+$modal-content-bg: #ffffff;
