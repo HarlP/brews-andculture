@@ -22,7 +22,7 @@ export default class GoogleMap extends React.Component<MapProps> {
   render() {
       let mapCenter = {lat: parseFloat(this.props.lat), lng: parseFloat(this.props.lng)}
     return (
-      <div style={{ height: '20em', width: '100%' }}>
+      <div style={{ height: '20rem', width: '100%' }}>
         <GoogleMapReact
           //bootstrapURLKeys={{ key: your_url_key }}
           defaultCenter={mapCenter}

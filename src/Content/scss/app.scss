@@ -1,4 +1,71 @@
-.mapContainer{
-    width: 100%;
-    height: 25%;
-}
+
+.row{
+
+     .title-block{
+         height: 4rem;
+         z-index: 1;
+         background-color: $primary;
+
+         @media (max-width: 320px) { 
+            height: 6.8rem;
+         }
+     }
+
+     .main{
+         padding-top: 4rem;
+         z-index: 2;
+
+         @media (max-width: 320px) { 
+            padding-top: 6.8rem;
+         }
+         .brewery{
+             height: 14rem;
+             border: solid 1px $primary;
+
+             @media (max-width: 360px) { 
+                height: 16rem;
+                border: none;
+                border-bottom: solid 1px $primary;
+             }
+
+             .bottom{
+                position:absolute; 
+                bottom: .6rem; 
+                width: 100%;
+                
+             }
+         }
+     }
+
+ }
+
+ .modal-body{
+
+     .main{
+        
+        .top-section{
+            height: 12rem;
+
+            @media (max-width: 360px) { 
+                height: 13rem;
+             }
+             
+            .bottom{
+                position:absolute; 
+                top: 10.5rem; 
+                width: 100%;
+            }
+        }
+
+        .map-container{
+            width: 100%;
+            height: 20rem;
+
+            .p-top{
+                padding-top: 9rem;
+            }
+        }
+        
+     }
+
+ }

@@ -65,30 +65,32 @@ export default class Breweries extends React.Component<BreweriesProps, Breweries
     if (error) return <div>Error</div>;
 
     if (breweries.length >= 1) {
-     return <div>
+     return <div className="main">
                 {breweries.map((brewery: BreweryArray) =>  
-                        <div key={brewery.id}>
-                          <h5>{brewery.name}</h5>
-                          <div>Brewery Type: {brewery.brewery_type}</div>
-                          <div>
-                            <span>Address:</span>
-                            <span>
+                        <div className="col-12 py-3 brewery" key={brewery.id}>
+                          <div className="border-bottom border-primary"><h5>{brewery.name}</h5></div>
+                          <div className="row pt-2">
+                            <div className="col-5">Type: {brewery.brewery_type}</div>
+                            <div className="col-7">
+                              <div>Address:</div>
                               <div>{brewery.street}</div>
                               <div>{brewery.city}, {brewery.state}</div>
                               <div>{brewery.postal_code}</div>
-                            </span>
+                            </div>
                           </div>
-                          <div>
-                            <a href={brewery.website_url} target="_blank">{brewery.website_url}</a>
-                          </div>
-                          <div className="custom-button"> 
-                            <Button
-                              variant="primary"
-                              onClick={() => this.handleBreweryClick(brewery.id,brewery.name)}
-                            >
-                              View
-                            </Button>
-                          </div>  
+                          <div className="row bottom">
+                            <div className="col-9">
+                              <a href={brewery.website_url} target="_blank">{brewery.website_url}</a>
+                            </div>
+                            <div className="col-3 text-center"> 
+                              <Button
+                                variant="primary"
+                                onClick={() => this.handleBreweryClick(brewery.id,brewery.name)}
+                              >
+                                Details
+                              </Button>
+                            </div> 
+                          </div> 
                         </div>)
                 }
                 <Brewery
