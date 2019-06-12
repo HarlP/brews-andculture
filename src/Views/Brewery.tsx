@@ -14,7 +14,7 @@ import Button from "react-bootstrap/Button";
 import GoogleMap from "./GoogleMap";
 import {BreweryArray} from "../Content/BreweryArray";
 import Format from "../Content/Format";
-const format = new Format;
+const format = new Format();
 
 interface BreweryProps {
  breweries: [];
@@ -59,7 +59,7 @@ export default class Brewery extends React.Component<BreweryProps> {
                               }
                               </div>
                               <div className="col-7">
-                                <a href={brewery.website_url} target="_blank">{brewery.website_url}</a>
+                                <a href={brewery.website_url} target="_blank" rel="noopener noreferrer">{brewery.website_url}</a>
                               </div>
                               
                             </div>

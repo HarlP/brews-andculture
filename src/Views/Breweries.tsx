@@ -80,7 +80,7 @@ export default class Breweries extends React.Component<BreweriesProps, Breweries
                           </div>
                           <div className="row bottom">
                             <div className="col-9">
-                              <a href={brewery.website_url} target="_blank">{brewery.website_url}</a>
+                              <a href={brewery.website_url} target="_blank" rel="noopener noreferrer">{brewery.website_url}</a>
                             </div>
                             <div className="col-3 text-center"> 
                               <Button
